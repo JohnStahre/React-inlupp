@@ -15,9 +15,9 @@ const Navbar = () => {
     // })
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/"><i className="fas fa-place-of-worship"></i></Link>
+          <Link className="navbar-brand" to="/"><i className="fas fa-place-of-worship"> JohnShop </i></Link>
           <button
             className="navbar-toggler"
             type="button"
