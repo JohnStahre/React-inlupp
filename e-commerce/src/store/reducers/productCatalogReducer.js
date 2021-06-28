@@ -2,7 +2,7 @@ import actiontypes from "../actiontypes";
 // tom array är det bara en vi ska hämta kan vi sätta den till null
 const initState = []
 
-const rootReducer = (state = initState, action) => {
+const productCatalogReducer = (state = initState, action) => {
     switch(action.type) {
 
         // när vi hämtat alla produkter byter vi ut vår array initstate = null med produkterna
@@ -17,4 +17,4 @@ const rootReducer = (state = initState, action) => {
 
 }
 
-export default rootReducer;
+export default productCatalogReducer ;
