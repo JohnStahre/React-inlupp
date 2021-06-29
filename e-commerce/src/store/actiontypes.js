@@ -5,7 +5,7 @@ const actiontypes = () => {
         },
         product: {
             set: 'PRODUCT_SET',
-            clear: 'PRODUCT_CLEARsssss'
+            clear: 'PRODUCT_CLEAR'
         }
     }
 }
