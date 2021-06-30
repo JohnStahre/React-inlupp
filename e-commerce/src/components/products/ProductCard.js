@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import {addToCart} from '../../store/actions/cartActions';
 
 
 const ProductCard = ({product, details}) => {
+
+        const dispatch = useDispatch()
+
     return (
         <div className="col">
             <div className="card h-100">
@@ -20,7 +25,9 @@ const ProductCard = ({product, details}) => {
                     </div>
                     <div className={`row row cols-1 ${!details && 'row-cols-lg-2'} g-2 mt-4`}> 
                     <div className="col"> 
-                        <button className="btn btn-secondary btn-block">Lägg i korg</button>
+                        <button className="btn btn-secondary btn-block" onClick={() => {
+                            dispatch(addToCart(product))
+                        }}>Lägg i korg</button>
                     </div>
                     {
                         !details && 
