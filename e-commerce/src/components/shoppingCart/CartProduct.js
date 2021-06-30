@@ -1,7 +1,7 @@
 import React from 'react'
 // nedan inom parantesen tar vi emot en product för att det ska funka
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../store/actions/cartActions'
+import { addToCart, removeFromCart } from '../../store/actions/cartActions'
 
 const CartProduct = ({product}) => {
 
@@ -11,6 +11,12 @@ const CartProduct = ({product}) => {
         // nedan gör så att rutan inte stängs
         e.stopPropagation()
         dispatch(addToCart(product))
+    }
+
+    const sub = e => {
+        // nedan gör så att rutan inte stängs
+        e.stopPropagation()
+        dispatch(removeFromCart(product._id))
     }
 
     return (
@@ -27,7 +33,7 @@ const CartProduct = ({product}) => {
                 </div>
                 <div className="buttons">
                     {/* <button className="btn btn-small bg-secondary">{product.quantity}</button> */}
-                    <button className="btn btn sm px-3">-</button>
+                    <button className="btn btn sm px-3" onClick={sub}>-</button>
                     <button className="btn btn sm px-3" onClick={add}>+</button>
                     <button className="btn btn sm px-3 bg-danger ms-3"><i className="fa fa-trash"></i></button>
                 </div>

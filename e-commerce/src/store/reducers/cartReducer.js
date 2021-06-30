@@ -34,8 +34,19 @@ const cartReducer = (state = initState, action) => {
             //         ...state,
             //         shoppingCart: [...state.shoppingCart, state.shoppingCart[itemIndex].quantity += 1]
 
+        case actiontypes().cart.sub:
+             itemIndex = state.shoppingCart.findIndex(product => product._id === action.payload)
+
+            state.shoppingCart[itemIndex].quantity === 1
+            ? state.shoppingCart = state.shoppingCart.filter(product => product._id !== action.payload)
+            :state.shoppingCart[itemIndex].quantity -= 1
+
+            state.totalCartAmount = getTotalAmount(state.shoppingCart)
+
+            return state
+
                 default:
-                            return state
+                    return state
 
                 }
             }
