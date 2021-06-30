@@ -1,5 +1,6 @@
 // import {useRef, useEffect, useState} from 'react'
 import { Link, NavLink } from 'react-router-dom';
+import ShoppingCart from '../shoppingCart/ShoppingCart';
 
 const Navbar = () => {
 
@@ -51,8 +52,8 @@ const Navbar = () => {
                     >
                     <i className="fas fa-shopping-cart"></i>
                     </span>
-                    <ul className="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
-                        Shopping cart
+                    <ul className="dropdown-menu dropdown-menu-lg-end shopping-cart" aria-labelledby="navbarDropdown">
+                       <ShoppingCart />
                     </ul>
                 </li>
 
