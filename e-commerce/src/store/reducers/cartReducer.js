@@ -45,6 +45,12 @@ const cartReducer = (state = initState, action) => {
 
             return state
 
+            case actiontypes().cart.delete:
+                state.shoppingCart = state.shoppingCart.filter(product => product._id !== action.payload)
+                state.totalCartAmount = getTotalAmount(state.shoppingCart)
+
+                return state
+
                 default:
                     return state
 
