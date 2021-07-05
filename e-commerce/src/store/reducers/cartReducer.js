@@ -21,6 +21,9 @@ const cartReducer = (state = initState, action) => {
             // om den däremot finns :
             : state.shoppingCart[itemIndex].quantity += 1
             state.totalCartAmount = getTotalAmount(state.shoppingCart)
+             // shoppingcart nummer
+             state.totalCartQuantity =getTotalQuantity(state.shoppingCart)
+            
 
             return state
 
@@ -42,12 +45,15 @@ const cartReducer = (state = initState, action) => {
             :state.shoppingCart[itemIndex].quantity -= 1
 
             state.totalCartAmount = getTotalAmount(state.shoppingCart)
+            // shoppingcart nummer
+            state.totalCartQuantity =getTotalQuantity(state.shoppingCart)
 
             return state
 
             case actiontypes().cart.delete:
                 state.shoppingCart = state.shoppingCart.filter(product => product._id !== action.payload)
                 state.totalCartAmount = getTotalAmount(state.shoppingCart)
+                state.totalCartQuantity =getTotalQuantity(state.shoppingCart)
 
                 return state
 
@@ -59,7 +65,13 @@ const cartReducer = (state = initState, action) => {
             
       
     
-
+const getTotalQuantity = cart => {
+    let total = 0;
+    cart.forEach(product => {
+        total += product.quantity
+    })
+    return total;
+}
 
 // funktion utanför för att ta in total på korgen
 

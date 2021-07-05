@@ -1,8 +1,11 @@
 // import {useRef, useEffect, useState} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import ShoppingCart from '../shoppingCart/ShoppingCart';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+  const totalQuantity = useSelector (state => state.cartReducer.totalCartQuantity)
 
     // test nedan för att se om den renderas om man lägger på class
 
@@ -51,6 +54,7 @@ const Navbar = () => {
                     aria-expanded="false"
                     >
                     <i className="fas fa-shopping-cart"></i>
+                    <span className="badge rounded-pill badge-notification bg-danger">{totalQuantity}</span>
                     </span>
                     <ul className="dropdown-menu dropdown-menu-lg-end shopping-cart" aria-labelledby="navbarDropdown">
                        <ShoppingCart />
